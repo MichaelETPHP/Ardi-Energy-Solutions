@@ -10,7 +10,7 @@
   body {
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.6;
-    color: #00308f;
+    color: #171717;
   }
 
   h1,
@@ -26,11 +26,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl;
   }
 
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-primary-600 font-medium py-3 px-6 rounded-full border-2 border-primary-600 transition-all duration-300 transform hover:scale-105;
+    @apply bg-white hover:bg-gray-50 text-red-600 font-medium py-3 px-6 rounded-full border-2 border-red-600 transition-all duration-200 transform hover:scale-105;
   }
 
   .section-padding {
@@ -42,7 +42,7 @@
   }
 
   .gradient-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
   }
 
   .glass-effect {
@@ -52,7 +52,7 @@
 
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -64,14 +64,15 @@
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
   }
   .modal-backdrop {
-    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40;
+    @apply fixed inset-0 backdrop-blur-sm z-40;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
 .language-selector select {
-  background-color: #4a5568; /* gray-700 */
+  background-color: #404040; /* gray-700 */
   color: white;
   padding: 8px 12px;
   border-radius: 8px;
-  border: 1px solid #718096; /* gray-600 */
+  border: 1px solid #525252; /* gray-600 */
 }

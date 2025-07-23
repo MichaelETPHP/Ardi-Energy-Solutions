@@ -1,19 +1,18 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import {
-  HiSun,
-  HiCloud,
-  HiLightningBolt,
-  HiOfficeBuilding,
-  HiHome,
-  HiTrendingUp,
-  HiCalendar,
-  HiLocationMarker,
-  HiEye,
+  HiBuildingOffice2,
+  HiBolt,
+  HiHomeModern,
+  HiBuildingStorefront,
+  HiXMark,
   HiArrowRight,
-} from 'react-icons/hi'
-import Modal from '../components/Modal'
+  HiCalendarDays,
+  HiMapPin,
+  HiCurrencyDollar,
+  HiUsers,
+} from 'react-icons/hi2'
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -22,389 +21,365 @@ const Projects = () => {
   })
 
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedProject, setSelectedProject] = useState(null)
-
-  const openModal = (project) => {
-    setSelectedProject(project)
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setSelectedProject(null)
-    setIsModalOpen(false)
-  }
 
   const projects = [
     {
-      title: 'Solar Farm Complex',
-      category: 'Solar Energy',
-      icon: HiSun,
-      location: 'Ethiopia',
-      date: '2024',
+      id: 1,
+      title: 'Addis Ababa MV and LV Electric Rehabilitation Project',
+      client: 'POWER CHINA',
+      category: 'Infrastructure',
+      location: 'Addis Ababa, Ethiopia',
+      duration: '18 months',
+      budget: '$2.5M',
+      team: '25 engineers',
       description:
-        '50MW solar farm installation providing clean energy to 15,000 households.',
-      specs: {
-        capacity: '50MW',
-        panels: '150,000',
-        area: '200 acres',
-        output: '85,000 MWh/year',
-      },
-      image: 'solar-farm',
-      color: 'from-yellow-400 to-orange-500',
+        'Comprehensive rehabilitation of medium and low voltage electrical infrastructure across Addis Ababa, including transformer upgrades, distribution network improvements, and smart grid implementation.',
+      icon: HiBolt,
+      color: 'from-blue-500 to-blue-600',
       status: 'Completed',
+      year: '2023',
+      highlights: [
+        'Upgraded 150+ transformers',
+        'Installed smart metering systems',
+        'Improved grid reliability by 40%',
+        'Reduced power losses by 25%',
+      ],
     },
     {
-      title: 'Wind Energy Park',
-      category: 'Wind Energy',
-      icon: HiCloud,
-      location: 'Ethiopia',
-      date: '2023',
-      description:
-        '100MW wind farm with 25 turbines generating renewable energy.',
-      specs: {
-        capacity: '100MW',
-        turbines: '25',
-        height: '120m',
-        output: '300,000 MWh/year',
-      },
-      image: 'wind-farm',
-      color: 'from-blue-400 to-cyan-500',
-      status: 'Completed',
-    },
-    {
-      title: 'Smart Grid Network',
-      category: 'Grid Technology',
-      icon: HiLightningBolt,
-      location: 'Ethiopia',
-      date: '2024',
-      description:
-        'Advanced smart grid implementation for improved energy distribution.',
-      specs: {
-        coverage: '500,000 homes',
-        efficiency: '98%',
-        savings: '25%',
-        monitoring: 'Real-time',
-      },
-      image: 'smart-grid',
-      color: 'from-purple-400 to-pink-500',
-      status: 'In Progress',
-    },
-    {
-      title: 'Commercial Solar Installation',
-      category: 'Commercial',
-      icon: HiOfficeBuilding,
-      location: 'Ethiopia',
-      date: '2023',
-      description:
-        '2MW rooftop solar installation for major corporate headquarters.',
-      specs: {
-        capacity: '2MW',
-        panels: '6,000',
-        savings: '$400K/year',
-        coverage: '100%',
-      },
-      image: 'commercial-solar',
-      color: 'from-green-400 to-emerald-500',
-      status: 'Completed',
-    },
-    {
-      title: 'Residential Community',
-      category: 'Residential',
-      icon: HiHome,
-      location: 'Ethiopia',
-      date: '2024',
-      description:
-        '500-home community with integrated solar and battery storage.',
-      specs: {
-        homes: '500',
-        capacity: '2.5MW',
-        storage: '5MWh',
-        savings: '90%',
-      },
-      image: 'residential',
-      color: 'from-indigo-400 to-blue-500',
-      status: 'Completed',
-    },
-    {
-      title: 'Industrial Energy Hub',
+      id: 2,
+      title: 'MOHA Soft Drinks S.C.',
+      client: 'MOHA Soft Drinks',
       category: 'Industrial',
-      icon: HiLightningBolt,
-      location: 'Ethiopia',
-      date: '2023',
+      location: 'Addis Ababa, Ethiopia',
+      duration: '12 months',
+      budget: '$1.8M',
+      team: '18 engineers',
       description:
-        'Comprehensive energy solution for large manufacturing facility.',
-      specs: {
-        capacity: '20MW',
-        efficiency: '95%',
-        savings: '$2M/year',
-        type: 'Hybrid',
-      },
-      image: 'industrial',
-      color: 'from-gray-400 to-slate-500',
+        'Complete electrical system design and installation for MOHA Soft Drinks manufacturing facility, including power distribution, lighting, and automation systems.',
+      icon: HiBuildingOffice2,
+      color: 'from-green-500 to-green-600',
       status: 'Completed',
+      year: '2023',
+      highlights: [
+        'Factory automation systems',
+        'Energy-efficient lighting design',
+        'Backup power systems',
+        'Production line integration',
+      ],
+    },
+    {
+      id: 3,
+      title: 'Midroc Gold Mining PLC',
+      client: 'Midroc Gold Mining',
+      category: 'Mining',
+      location: 'Oromia Region, Ethiopia',
+      duration: '24 months',
+      budget: '$4.2M',
+      team: '32 engineers',
+      description:
+        'Electrical infrastructure development for gold mining operations, including power generation, distribution, and specialized mining equipment electrical systems.',
+      icon: HiHomeModern,
+      color: 'from-yellow-500 to-yellow-600',
+      status: 'In Progress',
+      year: '2024',
+      highlights: [
+        'Mining equipment electrification',
+        'Remote monitoring systems',
+        'Safety compliance systems',
+        'Environmental monitoring',
+      ],
+    },
+    {
+      id: 4,
+      title: 'Hilton Debre Birhan Tree Hotel',
+      client: 'Hilton Hotels',
+      category: 'Hospitality',
+      location: 'Debre Birhan, Ethiopia',
+      duration: '16 months',
+      budget: '$3.1M',
+      team: '22 engineers',
+      description:
+        'Luxury hotel electrical systems design and installation, featuring advanced lighting, HVAC controls, security systems, and guest comfort automation.',
+      icon: HiBuildingStorefront,
+      color: 'from-purple-500 to-purple-600',
+      status: 'Completed',
+      year: '2023',
+      highlights: [
+        'Smart room automation',
+        'Energy management systems',
+        'Security and surveillance',
+        'Guest experience optimization',
+      ],
     },
   ]
 
+  const openModal = () => setIsModalOpen(true)
+  const closeModal = () => setIsModalOpen(false)
+
   return (
-    <section id='projects' className='section-padding bg-gray-50'>
-      <div className='container-custom'>
-        {/* Enhanced Section Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className='text-center mb-20'
-        >
-          {/* Glass Card Header */}
+    <>
+      <section className='section-padding bg-gradient-to-br from-gray-50 to-blue-50'>
+        <div className='container-custom'>
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className='relative bg-white/80 backdrop-blur-xl rounded-3xl p-12 md:p-16 shadow-2xl border border-white/30 mb-16'
+            ref={ref}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4 }}
+            className='text-center mb-16'
           >
-            {/* Decorative Background */}
-            <div className='absolute inset-0 bg-gradient-to-br from-primary-500/5 via-blue-500/5 to-secondary-500/5 rounded-3xl'></div>
-            <div className='absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-500/10 to-transparent rounded-full blur-3xl'></div>
-            <div className='absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-secondary-500/10 to-transparent rounded-full blur-2xl'></div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className='inline-flex items-center px-4 py-2 bg-red-50 text-red-700 rounded-full text-sm font-medium mb-6'
+            >
+              <HiBuildingOffice2 className='w-4 h-4 mr-2' />
+              Our Projects
+            </motion.div>
 
-            <div className='relative z-10'>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6'>
+              Complete
+              <span className='block text-gradient'>Projects</span>
+            </h2>
+            <p className='text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto'>
+              Discover our portfolio of successful electrical engineering
+              projects across various industries, showcasing our expertise and
+              commitment to excellence.
+            </p>
+          </motion.div>
+
+          {/* Featured Projects Grid */}
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-12'>
+            {projects.slice(0, 4).map((project, index) => (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className='inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 backdrop-blur-sm border border-primary-500/20 rounded-full text-sm font-semibold text-primary-700 mb-8'
-              >
-                <HiTrendingUp className='w-5 h-5 mr-2' />
-                Featured Projects
-              </motion.div>
-
-              <motion.h2
+                key={project.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className='text-4xl md:text-5xl lg:text-6xl font-display font-bold text-neutral-800 mb-8 leading-tight'
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className='bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group'
               >
-                Success Stories
-                <span className='block bg-gradient-to-r from-primary-500 via-blue-600 to-secondary-500 bg-clip-text text-transparent'>
-                  Across Ethiopia
-                </span>
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className='text-xl md:text-2xl text-neutral-700 max-w-4xl mx-auto leading-relaxed'
-              >
-                Explore our portfolio of successful energy projects that have
-                transformed communities and businesses across Ethiopia with
-                innovative solutions.
-              </motion.p>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Enhanced Projects Display - Show Only 3 Projects */}
-        <div className='grid lg:grid-cols-3 gap-8 lg:gap-12 mb-20'>
-          {projects.slice(0, 3).map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 60 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
-              whileHover={{ y: -15, scale: 1.02 }}
-              className='group relative bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/50'
-            >
-              {/* Project Header with Gradient */}
-              <div className='relative h-64 overflow-hidden'>
-                {/* Background Gradient */}
+                {/* Project Header */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-90`}
-                />
-
-                {/* Decorative Elements */}
-                <div className='absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl'></div>
-                <div className='absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full blur-xl'></div>
-
-                {/* Icon */}
-                <div className='absolute inset-0 flex items-center justify-center'>
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className='w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30'
-                  >
-                    <project.icon className='w-10 h-10 text-white' />
-                  </motion.div>
-                </div>
-
-                {/* Status Badge */}
-                <div className='absolute top-6 right-6'>
-                  <span
-                    className={`px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm border ${
-                      project.status === 'Completed'
-                        ? 'bg-green-500/20 text-green-700 border-green-500/30'
-                        : 'bg-yellow-500/20 text-yellow-700 border-yellow-500/30'
-                    }`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
-
-                {/* Category Badge */}
-                <div className='absolute top-6 left-6'>
-                  <span className='px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full border border-white/30'>
-                    {project.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Project Content */}
-              <div className='p-8'>
-                {/* Project Title */}
-                <h3 className='text-2xl font-bold text-neutral-800 group-hover:text-primary-500 transition-colors mb-4 leading-tight'>
-                  {project.title}
-                </h3>
-
-                {/* Location and Date */}
-                <div className='flex items-center space-x-6 mb-6 text-sm text-neutral-600'>
-                  <div className='flex items-center space-x-2'>
-                    <HiLocationMarker className='w-4 h-4 text-primary-500' />
-                    <span>{project.location}</span>
-                  </div>
-                  <div className='flex items-center space-x-2'>
-                    <HiCalendar className='w-4 h-4 text-primary-500' />
-                    <span>{project.date}</span>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p className='text-neutral-700 mb-8 leading-relaxed text-base'>
-                  {project.description}
-                </p>
-
-                {/* Key Specifications */}
-                <div className='grid grid-cols-2 gap-4 mb-8'>
-                  {Object.entries(project.specs)
-                    .slice(0, 4)
-                    .map(([key, value]) => (
-                      <div
-                        key={key}
-                        className='bg-gradient-to-br from-gray-50 to-white rounded-xl p-4 border border-gray-100'
-                      >
-                        <div className='text-xs text-neutral-500 uppercase tracking-wide mb-2 font-medium'>
-                          {key}
-                        </div>
-                        <div className='font-bold text-neutral-800 text-lg'>
-                          {value}
-                        </div>
-                      </div>
-                    ))}
-                </div>
-
-                {/* Enhanced CTA Button */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => openModal(project)}
-                  className='w-full bg-gradient-to-r from-primary-500 to-red-600 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-3 group-hover:from-primary-600 group-hover:to-red-700'
+                  className={`bg-gradient-to-br ${project.color} p-6 text-white`}
                 >
-                  <HiEye className='w-5 h-5' />
-                  <span>View Project Details</span>
-                  <HiArrowRight className='w-5 h-5 group-hover:translate-x-1 transition-transform' />
-                </motion.button>
-              </div>
+                  <div className='flex items-center justify-between mb-4'>
+                    <div className='w-12 h-12 bg-white/20 rounded-full flex items-center justify-center'>
+                      {React.createElement(project.icon, {
+                        className: 'w-6 h-6',
+                      })}
+                    </div>
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-medium ${
+                        project.status === 'Completed'
+                          ? 'bg-green-500/20 text-green-100'
+                          : 'bg-yellow-500/20 text-yellow-100'
+                      }`}
+                    >
+                      {project.status}
+                    </span>
+                  </div>
+                  <h3 className='text-xl font-bold mb-2 line-clamp-2'>
+                    {project.title}
+                  </h3>
+                  <p className='text-white/80 text-sm'>{project.client}</p>
+                </div>
 
-              {/* Hover Overlay Effect */}
-              <div className='absolute inset-0 bg-gradient-to-t from-primary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none'></div>
-            </motion.div>
-          ))}
-        </div>
+                {/* Project Details */}
+                <div className='p-6'>
+                  <div className='grid grid-cols-2 gap-4 mb-4'>
+                    <div className='flex items-center text-sm text-gray-600'>
+                      <HiMapPin className='w-4 h-4 mr-2 text-red-500' />
+                      {project.location}
+                    </div>
+                    <div className='flex items-center text-sm text-gray-600'>
+                      <HiCalendarDays className='w-4 h-4 mr-2 text-red-500' />
+                      {project.duration}
+                    </div>
+                    <div className='flex items-center text-sm text-gray-600'>
+                      <HiCurrencyDollar className='w-4 h-4 mr-2 text-red-500' />
+                      {project.budget}
+                    </div>
+                    <div className='flex items-center text-sm text-gray-600'>
+                      <HiUsers className='w-4 h-4 mr-2 text-red-500' />
+                      {project.team}
+                    </div>
+                  </div>
 
-        {/* Project Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className='mt-16 bg-white rounded-2xl p-8 shadow-lg border border-gray-100'
-        >
-          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 text-center'>
-            <div>
-              <div className='text-3xl md:text-4xl font-bold text-primary-500 mb-2'>
-                500+
-              </div>
-              <div className='text-neutral-700'>Projects Completed</div>
-            </div>
-            <div>
-              <div className='text-3xl md:text-4xl font-bold text-primary-500 mb-2'>
-                50MW+
-              </div>
-              <div className='text-neutral-700'>Total Capacity</div>
-            </div>
-            <div>
-              <div className='text-3xl md:text-4xl font-bold text-primary-500 mb-2'>
-                25+
-              </div>
-              <div className='text-neutral-700'>States Covered</div>
-            </div>
-            <div>
-              <div className='text-3xl md:text-4xl font-bold text-primary-500 mb-2'>
-                100%
-              </div>
-              <div className='text-neutral-700'>Client Satisfaction</div>
-            </div>
+                  <p className='text-gray-600 text-sm line-clamp-3 mb-4'>
+                    {project.description}
+                  </p>
+
+                  <div className='flex items-center justify-between'>
+                    <span className='text-red-600 font-semibold'>
+                      {project.year}
+                    </span>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className='text-red-600 hover:text-red-700 font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform duration-200'
+                    >
+                      Learn More
+                      <HiArrowRight className='w-4 h-4 ml-1' />
+                    </motion.button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 1 }}
-          className='text-center mt-16'
-        >
-          <div className='bg-gradient-to-r from-primary-500 to-red-600 rounded-2xl p-8 text-white'>
-            <h3 className='text-2xl font-bold mb-4'>
-              Ready to Start Your Energy Project?
-            </h3>
-            <p className='text-white/90 mb-6 max-w-2xl mx-auto'>
-              Join hundreds of satisfied clients who have transformed their
-              energy infrastructure with our innovative solutions and expert
-              team.
-            </p>
+          {/* View More Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.7 }}
+            className='text-center'
+          >
             <motion.button
+              onClick={openModal}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className='bg-white text-primary-500 hover:bg-gray-50 font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl'
+              className='bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center mx-auto'
             >
-              Start Your Project
+              View All Projects
+              <HiArrowRight className='w-5 h-5 ml-2' />
             </motion.button>
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
+        </div>
+      </section>
 
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        {selectedProject && (
-          <div>
-            <h2 className='text-2xl font-bold text-neutral-800 mb-4'>
-              {selectedProject.title}
-            </h2>
-            <p className='text-neutral-700 mb-4'>
-              {selectedProject.description}
-            </p>
-            <div className='grid grid-cols-2 gap-4'>
-              {Object.entries(selectedProject.specs).map(([key, value]) => (
-                <div key={key} className='bg-gray-100 rounded-lg p-3'>
-                  <div className='text-xs text-neutral-500 uppercase tracking-wide mb-1'>
-                    {key}
-                  </div>
-                  <div className='font-semibold text-neutral-800'>{value}</div>
+      {/* Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className='fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4'
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className='bg-white rounded-3xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden'
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className='bg-gradient-to-r from-red-600 to-red-700 text-white p-6 flex items-center justify-between'>
+                <h2 className='text-2xl font-bold'>
+                  Complete Projects Portfolio
+                </h2>
+                <button
+                  onClick={closeModal}
+                  className='w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors'
+                >
+                  <HiXMark className='w-6 h-6' />
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className='p-6 overflow-y-auto max-h-[calc(90vh-120px)]'>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
+                  {projects.map((project) => (
+                    <motion.div
+                      key={project.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className='bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow'
+                    >
+                      {/* Project Header */}
+                      <div className='flex items-center justify-between mb-4'>
+                        <div
+                          className={`w-12 h-12 bg-gradient-to-br ${project.color} rounded-full flex items-center justify-center`}
+                        >
+                          {React.createElement(project.icon, {
+                            className: 'w-6 h-6 text-white',
+                          })}
+                        </div>
+                        <div className='text-right'>
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-medium ${
+                              project.status === 'Completed'
+                                ? 'bg-green-100 text-green-700'
+                                : 'bg-yellow-100 text-yellow-700'
+                            }`}
+                          >
+                            {project.status}
+                          </span>
+                          <p className='text-sm text-gray-500 mt-1'>
+                            {project.year}
+                          </p>
+                        </div>
+                      </div>
+
+                      <h3 className='text-xl font-bold text-gray-900 mb-2'>
+                        {project.title}
+                      </h3>
+                      <p className='text-red-600 font-semibold mb-3'>
+                        {project.client}
+                      </p>
+
+                      <p className='text-gray-600 mb-4'>
+                        {project.description}
+                      </p>
+
+                      {/* Project Stats */}
+                      <div className='grid grid-cols-2 gap-3 mb-4'>
+                        <div className='bg-white rounded-lg p-3'>
+                          <p className='text-xs text-gray-500'>Location</p>
+                          <p className='font-semibold text-sm'>
+                            {project.location}
+                          </p>
+                        </div>
+                        <div className='bg-white rounded-lg p-3'>
+                          <p className='text-xs text-gray-500'>Duration</p>
+                          <p className='font-semibold text-sm'>
+                            {project.duration}
+                          </p>
+                        </div>
+                        <div className='bg-white rounded-lg p-3'>
+                          <p className='text-xs text-gray-500'>Budget</p>
+                          <p className='font-semibold text-sm'>
+                            {project.budget}
+                          </p>
+                        </div>
+                        <div className='bg-white rounded-lg p-3'>
+                          <p className='text-xs text-gray-500'>Team Size</p>
+                          <p className='font-semibold text-sm'>
+                            {project.team}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Project Highlights */}
+                      <div>
+                        <h4 className='font-semibold text-gray-900 mb-2'>
+                          Key Highlights:
+                        </h4>
+                        <ul className='space-y-1'>
+                          {project.highlights.map((highlight, index) => (
+                            <li
+                              key={index}
+                              className='flex items-center text-sm text-gray-600'
+                            >
+                              <div className='w-1.5 h-1.5 bg-red-500 rounded-full mr-2'></div>
+                              {highlight}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
-      </Modal>
-    </section>
+      </AnimatePresence>
+    </>
   )
 }
 

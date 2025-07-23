@@ -5,7 +5,7 @@ import {
   FaTwitter,
   FaLinkedinIn,
   FaInstagram,
-  FaWhatsapp,
+  FaTelegram,
   FaTimes,
   FaComments,
 } from 'react-icons/fa'
@@ -24,15 +24,11 @@ const Footer = () => {
     return () => clearTimeout(timer)
   }, [])
 
-  const handleWhatsAppClick = () => {
-    // Replace with your actual WhatsApp number
-    const phoneNumber = '+1234567890'
-    const message =
-      'Hello! I would like to know more about your energy solutions.'
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      message
-    )}`
-    window.open(whatsappUrl, '_blank')
+  const handleTelegramClick = () => {
+    // Telegram number for Ardi Energy Solutions
+    const phoneNumber = '+251923239898'
+    const telegramUrl = `https://t.me/${phoneNumber.replace('+', '')}`
+    window.open(telegramUrl, '_blank')
   }
 
   return (
@@ -140,7 +136,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* WhatsApp Chatbot */}
+      {/* Telegram Chatbot */}
       <AnimatePresence>
         {isVisible && (
           <motion.div
@@ -161,14 +157,14 @@ const Footer = () => {
                   className='absolute bottom-20 left-0 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden'
                 >
                   {/* Chat Header */}
-                  <div className='bg-gradient-to-r from-green-500 to-green-600 p-4 text-white'>
+                  <div className='bg-gradient-to-r from-blue-500 to-blue-600 p-4 text-white'>
                     <div className='flex items-center space-x-3'>
                       <div className='w-10 h-10 bg-white/20 rounded-full flex items-center justify-center'>
-                        <FaWhatsapp className='w-5 h-5' />
+                        <FaTelegram className='w-5 h-5' />
                       </div>
                       <div>
                         <h4 className='font-semibold'>Ardi Energy Solutions</h4>
-                        <p className='text-sm text-green-100'>
+                        <p className='text-sm text-blue-100'>
                           Online • Responds instantly
                         </p>
                       </div>
@@ -184,8 +180,8 @@ const Footer = () => {
                   {/* Chat Messages */}
                   <div className='p-4 space-y-3 max-h-64 overflow-y-auto'>
                     <div className='flex items-start space-x-2'>
-                      <div className='w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0'>
-                        <FaWhatsapp className='w-4 h-4 text-white' />
+                      <div className='w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0'>
+                        <FaTelegram className='w-4 h-4 text-white' />
                       </div>
                       <div className='bg-gray-100 rounded-2xl rounded-tl-md px-4 py-2 max-w-xs'>
                         <p className='text-sm text-gray-800'>
@@ -196,9 +192,10 @@ const Footer = () => {
                     </div>
 
                     <div className='flex items-start space-x-2 justify-end'>
-                      <div className='bg-green-500 rounded-2xl rounded-tr-md px-4 py-2 max-w-xs'>
+                      <div className='bg-blue-500 rounded-2xl rounded-tr-md px-4 py-2 max-w-xs'>
                         <p className='text-sm text-white'>
-                          Hi! I'd like to know more about your energy solutions.
+                          Hi! I'd like to know more about your electrical
+                          services.
                         </p>
                       </div>
                       <div className='w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0'>
@@ -209,13 +206,14 @@ const Footer = () => {
                     </div>
 
                     <div className='flex items-start space-x-2'>
-                      <div className='w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0'>
-                        <FaWhatsapp className='w-4 h-4 text-white' />
+                      <div className='w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0'>
+                        <FaTelegram className='w-4 h-4 text-white' />
                       </div>
                       <div className='bg-gray-100 rounded-2xl rounded-tl-md px-4 py-2 max-w-xs'>
                         <p className='text-sm text-gray-800'>
-                          Great! We offer solar, wind, and smart grid solutions.
-                          Would you like to chat on WhatsApp for more details?
+                          Great! We offer electrical engineering and power
+                          solutions. Would you like to chat on Telegram for more
+                          details?
                         </p>
                       </div>
                     </div>
@@ -226,11 +224,11 @@ const Footer = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={handleWhatsAppClick}
-                      className='w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl'
+                      onClick={handleTelegramClick}
+                      className='w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl'
                     >
-                      <FaWhatsapp className='w-5 h-5' />
-                      <span>Continue on WhatsApp</span>
+                      <FaTelegram className='w-5 h-5' />
+                      <span>Continue on Telegram</span>
                     </motion.button>
                   </div>
                 </motion.div>
@@ -242,7 +240,7 @@ const Footer = () => {
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsChatOpen(!isChatOpen)}
-              className='relative w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full shadow-2xl border-4 border-white flex items-center justify-center transition-all duration-300 group'
+              className='relative w-16 h-16 bg-blue-500 hover:bg-blue-600 rounded-full shadow-2xl border-4 border-white flex items-center justify-center transition-all duration-300 group'
             >
               <AnimatePresence mode='wait'>
                 {isChatOpen ? (
@@ -257,13 +255,13 @@ const Footer = () => {
                   </motion.div>
                 ) : (
                   <motion.div
-                    key='whatsapp'
+                    key='telegram'
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <FaWhatsapp className='w-7 h-7 text-white' />
+                    <FaTelegram className='w-7 h-7 text-white' />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -276,7 +274,7 @@ const Footer = () => {
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
-                className='absolute inset-0 bg-green-400 rounded-full'
+                className='absolute inset-0 bg-blue-400 rounded-full'
               />
 
               {/* Notification Badge */}
@@ -297,7 +295,7 @@ const Footer = () => {
               transition={{ delay: 0.5 }}
               className='absolute bottom-20 left-0 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300'
             >
-              Chat with us on WhatsApp
+              Chat with us on Telegram
               <div className='absolute top-full left-6 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900'></div>
             </motion.div>
           </motion.div>

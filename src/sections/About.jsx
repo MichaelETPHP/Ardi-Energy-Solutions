@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import logo from '../assets/logo.png' // Import the logo
+import aboutImage from '../assets/IMG/image.png' // Import the about image
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -25,7 +25,7 @@ const About = () => {
           className='bg-white/30 backdrop-blur-lg rounded-2xl p-8 md:p-12 shadow-xl border border-white/40'
         >
           <div className='grid md:grid-cols-2 gap-8 md:gap-12 items-center'>
-            {/* Left Column - Logo */}
+            {/* Left Column - About Image */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -33,9 +33,9 @@ const About = () => {
               className='flex justify-center items-center p-6 bg-white/50 rounded-xl shadow-inner'
             >
               <img
-                src={logo}
-                alt='Ardi Energy Solutions Logo'
-                className='max-w-xs w-full'
+                src={aboutImage}
+                alt='Ardi Energy Solutions - Professional Electrical Services'
+                className='max-w-full w-full h-auto rounded-lg shadow-lg object-cover'
               />
             </motion.div>
 
@@ -49,7 +49,7 @@ const About = () => {
               <h2 className='text-3xl md:text-4xl font-bold text-neutral-800'>
                 Ardi Energy Solutions
               </h2>
-              <p className='text-primary-500 font-semibold text-lg mt-2 mb-4'>
+              <p className='text-red-600 font-semibold text-lg mt-2 mb-4'>
                 Electrical Power Supply Works CONTRACTOR
               </p>
               <p className='text-neutral-700 leading-relaxed'>
@@ -64,7 +64,7 @@ const About = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className='mt-6 bg-primary-500 text-white font-medium py-3 px-6 rounded-full shadow-lg'
+                className='mt-6 bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-full shadow-lg transition-colors duration-200'
               >
                 Read More
               </motion.button>

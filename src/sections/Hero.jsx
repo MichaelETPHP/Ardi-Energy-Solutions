@@ -76,7 +76,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className='bg-primary-500 text-white font-medium py-3 px-6 rounded-full shadow-lg'
+              className='bg-red-600 text-white font-medium py-3 px-6 rounded-full shadow-lg'
             >
               Our Services
             </motion.button>
@@ -92,20 +92,20 @@ const Hero = () => {
       </div>
 
       {/* Elementor-style Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex items-center space-x-6">
+      <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20'>
+        <div className='flex items-center space-x-6'>
           {/* Previous Button */}
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={prevSlide}
-            className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group"
+            className='w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group'
           >
-            <HiChevronLeft className="w-6 h-6 group-hover:text-primary-500 transition-colors" />
+            <HiChevronLeft className='w-6 h-6 group-hover:text-red-500 transition-colors' />
           </motion.button>
 
           {/* Slide Dots */}
-          <div className="flex space-x-3">
+          <div className='flex space-x-3'>
             {slides.map((_, index) => (
               <motion.button
                 key={index}
@@ -126,16 +126,16 @@ const Hero = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={nextSlide}
-            className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group"
+            className='w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 group'
           >
-            <HiChevronRight className="w-6 h-6 group-hover:text-primary-500 transition-colors" />
+            <HiChevronRight className='w-6 h-6 group-hover:text-red-500 transition-colors' />
           </motion.button>
         </div>
       </div>
 
       {/* Slide Counter */}
-      <div className="absolute bottom-8 right-8 z-20">
-        <div className="bg-black/30 backdrop-blur-sm rounded-full px-4 py-2 text-white text-sm font-medium border border-white/20">
+      <div className='absolute bottom-8 right-8 z-20'>
+        <div className='bg-black/30 backdrop-blur-sm rounded-full px-4 py-2 text-white text-sm font-medium border border-white/20'>
           {currentSlide + 1} / {slides.length}
         </div>
       </div>

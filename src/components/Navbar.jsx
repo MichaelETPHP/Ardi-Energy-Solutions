@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { HiMenu, HiX } from 'react-icons/hi'
+import { HiBars3, HiXMark } from 'react-icons/hi2'
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
 import logo from '../assets/logo.png'
 
@@ -51,24 +51,20 @@ const Navbar = ({ isScrolled }) => {
     setIsOpen(false)
   }
 
-  const navTextColor = isScrolled || isOpen ? 'text-neutral-500' : 'text-white'
-  const navHoverColor =
-    isScrolled || isOpen ? 'hover:text-primary-500' : 'hover:text-gray-200'
-  const activeColor =
-    isScrolled || isOpen ? 'text-primary-500' : 'text-secondary-500'
+  const navTextColor = 'text-gray-700'
+  const navHoverColor = 'hover:text-red-600'
+  const activeColor = 'text-red-600'
 
   return (
     <div className='fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4'>
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3 }}
         className={`w-full max-w-6xl transition-all duration-300 ${
-          isOpen ? 'rounded-2xl bg-white shadow-lg' : 'rounded-full'
-        } ${
-          !isOpen &&
-          (isScrolled
-            ? 'bg-white/80 backdrop-blur-md shadow-lg'
-            : 'bg-black/20 backdrop-blur-sm')
+          isScrolled || isOpen
+            ? 'bg-white shadow-lg rounded-2xl'
+            : 'bg-white shadow-lg rounded-full'
         }`}
       >
         <div className='flex items-center justify-between h-16 px-6'>
@@ -110,55 +106,25 @@ const Navbar = ({ isScrolled }) => {
                 href='https://facebook.com'
                 target='_blank'
                 rel='noopener noreferrer'
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  isScrolled || isOpen
-                    ? 'bg-gray-100 hover:bg-red-100'
-                    : 'bg-white/20 hover:bg-white/30'
-                }`}
+                className='w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-gray-100 hover:bg-red-100'
               >
-                <FaFacebook
-                  className={`text-lg ${
-                    isScrolled || isOpen
-                      ? 'text-red-500 hover:text-green-500'
-                      : 'text-white hover:text-red-400'
-                  }`}
-                />
+                <FaFacebook className='text-lg text-red-600 hover:text-red-700' />
               </a>
               <a
                 href='https://twitter.com'
                 target='_blank'
                 rel='noopener noreferrer'
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  isScrolled || isOpen
-                    ? 'bg-gray-100 hover:bg-red-100'
-                    : 'bg-white/20 hover:bg-white/30'
-                }`}
+                className='w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-gray-100 hover:bg-red-100'
               >
-                <FaTwitter
-                  className={`text-lg ${
-                    isScrolled || isOpen
-                      ? 'text-red-500 hover:text-green-500'
-                      : 'text-white hover:text-red-400'
-                  }`}
-                />
+                <FaTwitter className='text-lg text-red-600 hover:text-red-700' />
               </a>
               <a
                 href='https://linkedin.com'
                 target='_blank'
                 rel='noopener noreferrer'
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  isScrolled || isOpen
-                    ? 'bg-gray-100 hover:bg-red-100'
-                    : 'bg-white/20 hover:bg-white/30'
-                }`}
+                className='w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-gray-100 hover:bg-red-100'
               >
-                <FaLinkedin
-                  className={`text-lg ${
-                    isScrolled || isOpen
-                      ? 'text-red-500 hover:text-green-500'
-                      : 'text-white hover:text-red-400'
-                  }`}
-                />
+                <FaLinkedin className='text-lg text-red-600 hover:text-red-700' />
               </a>
             </div>
           </div>
@@ -167,12 +133,12 @@ const Navbar = ({ isScrolled }) => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-full transition-colors ${navTextColor}`}
+            className='md:hidden p-2 rounded-full transition-colors text-gray-700'
           >
             {isOpen ? (
-              <HiX className='w-6 h-6' />
+              <HiXMark className='w-6 h-6' />
             ) : (
-              <HiMenu className='w-6 h-6' />
+              <HiBars3 className='w-6 h-6' />
             )}
           </motion.button>
         </div>
@@ -186,15 +152,15 @@ const Navbar = ({ isScrolled }) => {
               exit={{ opacity: 0, height: 0 }}
               className='md:hidden'
             >
-              <div className='py-2 space-y-2 px-4 pb-4'>
+              <div className='py-2 space-y-2 px-6 pb-4 bg-white border-t border-gray-100'>
                 {navItems.map((item) => (
                   <motion.button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full flex items-center justify-center py-3 rounded-lg transition-all duration-300 text-neutral-500 ${
+                    className={`w-full flex items-center justify-center py-3 rounded-lg transition-all duration-300 text-gray-700 ${
                       activeSection === item.id
-                        ? 'text-primary-500 bg-primary-50'
-                        : 'hover:text-primary-500 hover:bg-gray-50'
+                        ? 'text-red-600 bg-red-50'
+                        : 'hover:text-red-600 hover:bg-gray-50'
                     }`}
                   >
                     <span className='font-medium'>{item.label}</span>

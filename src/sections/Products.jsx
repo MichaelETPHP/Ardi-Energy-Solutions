@@ -195,16 +195,16 @@ const Products = () => {
         {/* Section Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className='text-center mb-16'
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className='inline-flex items-center px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium mb-6'
+            className='inline-flex items-center px-4 py-2 bg-red-50 text-red-700 rounded-full text-sm font-medium mb-6'
           >
             <HiTruck className='w-4 h-4 mr-2' />
             Manufacturing & Supply
@@ -246,7 +246,7 @@ const Products = () => {
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? 'bg-white text-primary-600 shadow-lg'
+                    ? 'bg-white text-red-600 shadow-lg'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -270,11 +270,11 @@ const Products = () => {
             {getProductsByCategory().map((product, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
                 whileHover={{ y: -5 }}
-                className='group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100'
+                className='group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-200 border border-gray-100'
               >
                 {/* Product Header */}
                 <div className='flex items-start space-x-4 mb-6'>
@@ -286,10 +286,10 @@ const Products = () => {
                     <product.icon className='w-6 h-6 text-white' />
                   </motion.div>
                   <div className='flex-1'>
-                    <div className='text-sm text-primary-600 font-medium mb-1'>
+                    <div className='text-sm text-red-600 font-medium mb-1'>
                       {product.category}
                     </div>
-                    <h3 className='text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors'>
+                    <h3 className='text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors'>
                       {product.name}
                     </h3>
                     <p className='text-gray-600 text-sm mt-2'>
@@ -348,7 +348,7 @@ const Products = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
           className='text-center mt-16'
         >
-          <div className='bg-gradient-to-r from-primary-50 to-blue-50 rounded-2xl p-8 border border-primary-100'>
+          <div className='bg-gradient-to-r from-red-50 to-gray-50 rounded-2xl p-8 border border-red-100'>
             <h3 className='text-2xl font-bold text-gray-900 mb-4'>
               Need Bulk Supply or Custom Equipment?
             </h3>

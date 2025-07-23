@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import team1 from '../assets/team1.png'
-import team2 from '../assets/team2.png'
+import team1 from '../assets/team1.jpg'
+import team2 from '../assets/team1.jpg'
 
 const Team = () => {
   const [ref, inView] = useInView({
@@ -11,7 +11,7 @@ const Team = () => {
 
   const teamMembers = [
     {
-      name: 'John Doe',
+      name: 'Fiseha ',
       role: 'CEO & Founder',
       image: team1,
       isCeo: true,

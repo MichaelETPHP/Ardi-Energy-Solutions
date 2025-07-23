@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { HiX } from 'react-icons/hi'
+import { HiXMark } from 'react-icons/hi2'
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null
@@ -28,7 +28,7 @@ const Modal = ({ isOpen, onClose, children }) => {
               onClick={onClose}
               className='absolute top-4 right-4 text-gray-600 hover:text-gray-900'
             >
-              <HiX className='w-6 h-6' />
+              <HiXMark className='w-6 h-6' />
             </motion.button>
             {children}
           </motion.div>
