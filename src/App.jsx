@@ -1,4 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import TestingPage from './pages/TestingPage'
 import Navbar from './components/Navbar'
 import LoadingScreen from './components/LoadingScreen'
 
@@ -41,23 +43,33 @@ function App() {
   }
 
   return (
-    <div className='min-h-screen bg-white'>
-      <Navbar isScrolled={isScrolled} />
-      <Suspense fallback={<div className='h-screen'></div>}>
-        <main>
-          <Hero />
-          <About />
-          <Services />
-          <Products />
-          <Projects />
-          <Recommendations />
-          <Partners />
-          <Team />
-          <Contact />
-        </main>
+    <Router>
+      <div className='min-h-screen bg-white'>
+        <Navbar isScrolled={isScrolled} />
+        <Suspense fallback={<div className='h-screen'></div>}>
+          <Routes>
+            <Route
+              path='/'
+              element={
+                <main>
+                  <Hero />
+                  <About />
+                  <Services />
+                  <Products />
+                  <Projects />
+                  <Recommendations />
+                  <Partners />
+                  <Team />
+                  <Contact />
+                </main>
+              }
+            />
+            <Route path='/testing' element={<TestingPage />} />
+          </Routes>
+        </Suspense>
         <Footer />
-      </Suspense>
-    </div>
+      </div>
+    </Router>
   )
 }
 

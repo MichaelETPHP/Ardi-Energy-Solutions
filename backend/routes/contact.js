@@ -1,23 +1,24 @@
 const express = require('express')
 const { body, validationResult } = require('express-validator')
+const { sendContactEmail } = require('../services/emailService')
 const router = express.Router()
 
 // Contact form submission
 router.post(
   '/',
   [
-    body('name')
+    body('fullName')
       .trim()
       .isLength({ min: 2 })
-      .withMessage('Name must be at least 2 characters long'),
+      .withMessage('Full name must be at least 2 characters long'),
     body('email')
       .isEmail()
       .normalizeEmail()
       .withMessage('Please provide a valid email address'),
-    body('message')
+    body('phone')
       .trim()
       .isLength({ min: 10 })
-      .withMessage('Message must be at least 10 characters long'),
+      .withMessage('Phone number must be at least 10 characters long'),
   ],
   async (req, res) => {
     try {
@@ -30,26 +31,29 @@ router.post(
         })
       }
 
-      const { name, email, message } = req.body
+      const { fullName, email, phone } = req.body
 
-      // Here you would typically:
-      // 1. Save to database
-      // 2. Send email notification
-      // 3. Log the contact request
+      // Try to send email notification, but don't fail the request if email fails
+      try {
+        await sendContactEmail({ fullName, email, phone })
+        console.log('Email sent successfully')
+      } catch (emailError) {
+        console.error(
+          'Email sending failed, but contact form will still be processed:',
+          emailError.message
+        )
+        // Continue with the request even if email fails
+      }
 
-      // Simulate processing time
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      // Mock response
       res.status(200).json({
         success: true,
         message:
-          'Thank you for your message! We will get back to you within 24 hours.',
+          'Thank you for contacting us! We will get back to you within 24 hours.',
         data: {
           id: Date.now(),
-          name,
+          fullName,
           email,
-          message,
+          phone,
           submittedAt: new Date().toISOString(),
         },
       })

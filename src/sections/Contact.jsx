@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Modal from '../components/Modal'
+import Notification from '../components/Notification'
 import {
   HiEnvelope,
   HiPhone,
@@ -8,6 +10,7 @@ import {
   HiDevicePhoneMobile,
   HiClock,
   HiGlobeAlt,
+  HiUser,
 } from 'react-icons/hi2'
 
 const Contact = () => {
@@ -15,6 +18,74 @@ const Contact = () => {
     triggerOnce: true,
     threshold: 0.1,
   })
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [notification, setNotification] = useState({
+    isVisible: false,
+    message: '',
+    type: 'success',
+  })
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const showNotification = (message, type = 'success') => {
+    setNotification({
+      isVisible: true,
+      message,
+      type,
+    })
+  }
+
+  const hideNotification = () => {
+    setNotification((prev) => ({ ...prev, isVisible: false }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        showNotification(data.message, 'success')
+        setFormData({ fullName: '', email: '', phone: '' })
+        setIsModalOpen(false)
+      } else {
+        const errorMessage =
+          data.message || 'Failed to submit form. Please try again.'
+        showNotification(errorMessage, 'error')
+      }
+    } catch (error) {
+      console.error('Contact form error:', error)
+      showNotification(
+        'Network error. Please check your connection and try again.',
+        'error'
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   const contactInfo = [
     {
@@ -136,15 +207,15 @@ const Contact = () => {
           </p>
 
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-            <motion.a
-              href='tel:+251118102143'
+            <motion.button
+              onClick={() => setIsModalOpen(true)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className='bg-white text-red-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center'
             >
-              <HiPhone className='w-5 h-5 mr-2' />
-              Call Now
-            </motion.a>
+              <HiUser className='w-5 h-5 mr-2' />
+              Contact Me
+            </motion.button>
 
             <motion.a
               href='mailto:ardienergysolutions97@gmail.com'
@@ -177,6 +248,98 @@ const Contact = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Contact Form Modal */}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <div className='text-center'>
+          <h3 className='text-2xl font-bold text-gray-900 mb-6'>Contact Us</h3>
+          <p className='text-gray-600 mb-8'>
+            Fill out the form below and we'll get back to you as soon as
+            possible.
+          </p>
+
+          <form onSubmit={handleSubmit} className='space-y-6'>
+            <div>
+              <label
+                htmlFor='fullName'
+                className='block text-sm font-medium text-gray-700 mb-2 text-left'
+              >
+                Full Name *
+              </label>
+              <input
+                type='text'
+                id='fullName'
+                name='fullName'
+                value={formData.fullName}
+                onChange={handleInputChange}
+                required
+                className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors'
+                placeholder='Enter your full name'
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor='email'
+                className='block text-sm font-medium text-gray-700 mb-2 text-left'
+              >
+                Email *
+              </label>
+              <input
+                type='email'
+                id='email'
+                name='email'
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors'
+                placeholder='Enter your email address'
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor='phone'
+                className='block text-sm font-medium text-gray-700 mb-2 text-left'
+              >
+                Phone Number *
+              </label>
+              <input
+                type='tel'
+                id='phone'
+                name='phone'
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+                className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors'
+                placeholder='Enter your phone number'
+              />
+            </div>
+
+            <motion.button
+              type='submit'
+              disabled={isSubmitting}
+              whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+              className={`w-full font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl ${
+                isSubmitting
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white'
+              }`}
+            >
+              {isSubmitting ? 'Sending...' : 'Submit'}
+            </motion.button>
+          </form>
+        </div>
+      </Modal>
+
+      {/* Notification Component */}
+      <Notification
+        isVisible={notification.isVisible}
+        message={notification.message}
+        type={notification.type}
+        onClose={hideNotification}
+      />
     </section>
   )
 }

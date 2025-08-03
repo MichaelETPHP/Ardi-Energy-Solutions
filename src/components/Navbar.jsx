@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiBars3, HiXMark } from 'react-icons/hi2'
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import { useNavigate, useLocation } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
 const Navbar = ({ isScrolled }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -15,11 +18,20 @@ const Navbar = ({ isScrolled }) => {
     { id: 'products', label: 'Products' },
     { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' },
+    { id: 'testing', label: 'Testing', isRoute: true },
   ]
 
   useEffect(() => {
+    // Handle route-based active section
+    if (location.pathname === '/testing') {
+      setActiveSection('testing')
+      return
+    }
+
     const handleScroll = () => {
-      const sections = navItems.map((item) => item.id)
+      const sections = navItems
+        .filter((item) => !item.isRoute)
+        .map((item) => item.id)
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -39,14 +51,25 @@ const Navbar = ({ isScrolled }) => {
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [navItems])
+    // Only add scroll listener if we're on the home page
+    if (location.pathname === '/') {
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+    }
+  }, [navItems, location.pathname])
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    const navItem = navItems.find((item) => item.id === sectionId)
+
+    if (navItem && navItem.isRoute) {
+      // Handle route navigation
+      navigate(`/${sectionId}`)
+    } else {
+      // Handle scroll to section
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
     }
     setIsOpen(false)
   }
