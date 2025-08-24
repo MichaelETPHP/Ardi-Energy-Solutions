@@ -269,7 +269,7 @@ const Partners = () => {
             >
               <HiChevronLeft className='w-6 h-6' />
             </button>
-            
+
             <div className='text-center'>
               <span className='text-sm text-gray-600'>
                 Page {currentPage + 1} of {totalPages}
