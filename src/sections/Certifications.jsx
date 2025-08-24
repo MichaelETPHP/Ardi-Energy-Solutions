@@ -3,6 +3,20 @@ import { useInView } from 'react-intersection-observer'
 import { HiDocumentText, HiStar, HiCheckCircle } from 'react-icons/hi2'
 import { useState } from 'react'
 
+// Import certification images directly
+import acemeCert from '../assets/Recomendations/ACEME CERTIFICAT.jpg'
+import efdaCert from '../assets/Recomendations/efda.jpg'
+import fcaCert from '../assets/Recomendations/FCA.jpg'
+import iomCert from '../assets/Recomendations/IOM.jpg'
+import midrocCert from '../assets/Recomendations/Midroc.jpg'
+import mohaCert from '../assets/Recomendations/Moha Soft Drink.jpg'
+import pyramideCert from '../assets/Recomendations/Pyramide Hotel spa DZ.jpg'
+import semicCert from '../assets/Recomendations/Semic.jpg'
+import taffCert from '../assets/Recomendations/TAFF BB BUSINUS .jpg'
+import tsdCert from '../assets/Recomendations/tsd.jpg'
+import walyaCert from '../assets/Recomendations/walya steel.jpg'
+import zamraCert from '../assets/Recomendations/Zamra .jpg'
+
 const Certifications = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -13,99 +27,99 @@ const Certifications = () => {
     {
       id: 1,
       name: 'ACEME Certificate',
-      image: '/src/assets/Recomendations/ACEME CERTIFICAT.jpg',
+      image: acemeCert,
       type: 'Certificate',
       company: 'ACEME',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 2,
       name: 'EFDA Recommendation',
-      image: '/src/assets/Recomendations/efda.jpg',
+      image: efdaCert,
       type: 'Recommendation',
       company: 'EFDA',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 3,
       name: 'FCA Certification',
-      image: '/src/assets/Recomendations/FCA.jpg',
+      image: fcaCert,
       type: 'Certificate',
       company: 'FCA',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 4,
       name: 'IOM Recommendation',
-      image: '/src/assets/Recomendations/IOM.jpg',
+      image: iomCert,
       type: 'Recommendation',
       company: 'IOM',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 5,
       name: 'Midroc Recommendation',
-      image: '/src/assets/Recomendations/Midroc.jpg',
+      image: midrocCert,
       type: 'Recommendation',
       company: 'Midroc',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 6,
       name: 'MOHA Soft Drinks',
-      image: '/src/assets/Recomendations/Moha Soft Drink.jpg',
+      image: mohaCert,
       type: 'Recommendation',
       company: 'MOHA',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 7,
       name: 'Pyramide Hotel Spa',
-      image: '/src/assets/Recomendations/Pyramide Hotel spa DZ.jpg',
+      image: pyramideCert,
       type: 'Recommendation',
       company: 'Pyramide Hotel',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 8,
       name: 'Semic Recommendation',
-      image: '/src/assets/Recomendations/Semic.jpg',
+      image: semicCert,
       type: 'Recommendation',
       company: 'Semic',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 9,
       name: 'TAFF BB Business',
-      image: '/src/assets/Recomendations/TAFF BB BUSINUS .jpg',
+      image: taffCert,
       type: 'Recommendation',
       company: 'TAFF BB',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 10,
       name: 'TSD Certification',
-      image: '/src/assets/Recomendations/tsd.jpg',
+      image: tsdCert,
       type: 'Certificate',
       company: 'TSD',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 11,
       name: 'Walya Steel',
-      image: '/src/assets/Recomendations/walya steel.jpg',
+      image: walyaCert,
       type: 'Recommendation',
       company: 'Walya Steel',
-      year: '2024',
+      year: '2024'
     },
     {
       id: 12,
       name: 'Zamra Recommendation',
-      image: '/src/assets/Recomendations/Zamra .jpg',
+      image: zamraCert,
       type: 'Recommendation',
       company: 'Zamra',
-      year: '2024',
-    },
+      year: '2024'
+    }
   ]
 
   const [selectedCert, setSelectedCert] = useState(null)
@@ -115,10 +129,7 @@ const Certifications = () => {
 
   return (
     <>
-      <section
-        id='certifications'
-        className='section-padding bg-gradient-to-br from-gray-50 to-blue-50'
-      >
+      <section id='certifications' className='section-padding bg-gradient-to-br from-gray-50 to-blue-50'>
         <div className='container-custom'>
           <motion.div
             ref={ref}
@@ -142,9 +153,7 @@ const Certifications = () => {
               <span className='block text-gradient'>Accreditations</span>
             </h2>
             <p className='text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto'>
-              Discover our industry-recognized certifications and client
-              recommendations that demonstrate our commitment to excellence and
-              quality in energy solutions.
+              Discover our industry-recognized certifications and client recommendations that demonstrate our commitment to excellence and quality in energy solutions.
             </p>
           </motion.div>
 
@@ -173,13 +182,11 @@ const Certifications = () => {
 
                     {/* Type Badge */}
                     <div className='absolute top-3 left-3'>
-                      <span
-                        className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          cert.type === 'Certificate'
-                            ? 'bg-green-500/90 text-white'
-                            : 'bg-blue-500/90 text-white'
-                        }`}
-                      >
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        cert.type === 'Certificate'
+                          ? 'bg-green-500/90 text-white'
+                          : 'bg-blue-500/90 text-white'
+                      }`}>
                         {cert.type === 'Certificate' ? (
                           <HiCheckCircle className='w-3 h-3 inline mr-1' />
                         ) : (
@@ -204,9 +211,7 @@ const Certifications = () => {
                     </h3>
                     <div className='flex items-center justify-between text-xs text-gray-500'>
                       <span>{cert.year}</span>
-                      <span className='text-red-500 font-medium'>
-                        Click to view
-                      </span>
+                      <span className='text-red-500 font-medium'>Click to view</span>
                     </div>
                   </div>
                 </div>
@@ -268,26 +273,14 @@ const Certifications = () => {
               <div className='bg-gradient-to-r from-red-600 to-red-700 text-white p-6 flex items-center justify-between'>
                 <div>
                   <h2 className='text-2xl font-bold'>{selectedCert.name}</h2>
-                  <p className='text-red-100'>
-                    {selectedCert.company} • {selectedCert.year}
-                  </p>
+                  <p className='text-red-100'>{selectedCert.company} • {selectedCert.year}</p>
                 </div>
                 <button
                   onClick={closeModal}
                   className='w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors'
                 >
-                  <svg
-                    className='w-6 h-6'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M6 18L18 6M6 6l12 12'
-                    />
+                  <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M6 18L18 6M6 6l12 12' />
                   </svg>
                 </button>
               </div>

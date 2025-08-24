@@ -3,6 +3,64 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { HiUserGroup, HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
 
+// Import partner logos directly
+import midrocLogo from '../assets/Trusted_Partners/midroc-investment-group.png'
+import waritLogo from '../assets/Trusted_Partners/Warit logo.jpg'
+import warytLogo from '../assets/Trusted_Partners/Waryt-logo-2-200x200.png'
+import ybpLogo from '../assets/Trusted_Partners/YBP L.jpg'
+import zameraLogo from '../assets/Trusted_Partners/Zamera CON L.jpg'
+import zsLogo from '../assets/Trusted_Partners/zs-logo.png'
+import stellyLogo from '../assets/Trusted_Partners/stelly rmi.jpg'
+import tafOilLogo from '../assets/Trusted_Partners/taf oil (1).jpg'
+import testiLogo from '../assets/Trusted_Partners/Testi Trading PLC.jpg'
+import ukAidLogo from '../assets/Trusted_Partners/UK_AID.jpeg'
+import unicefLogo from '../assets/Trusted_Partners/Unicef L.jpg'
+import walyaLogo from '../assets/Trusted_Partners/WALYA STEEL LOGO.png'
+import kobilLogo from '../assets/Trusted_Partners/Kobil-Logo.png'
+import kolyaLogo from '../assets/Trusted_Partners/Kolya plc.jpg'
+import lionLogo from '../assets/Trusted_Partners/Lion INSU L.jpg'
+import nebeLogo from '../assets/Trusted_Partners/NEBE LOGOl.jpg'
+import iomLogo from '../assets/Trusted_Partners/IOM L.jpg'
+import kaldisLogo from '../assets/Trusted_Partners/Kaldis .jpg'
+import dktLogo from '../assets/Trusted_Partners/DKT ETHIOPA.jpg'
+import efdaLogo from '../assets/Trusted_Partners/efda.jpg'
+import emuLogo from '../assets/Trusted_Partners/emu general Importer.png'
+import habeshaLogo from '../assets/Trusted_Partners/habesha BEER.png'
+import silafricaLogo from '../assets/Trusted_Partners/https __s3.amazonaws.com_appforest_uf_f1643885953696x371383582784148100_Silafrica_Logo_Color_WithTagline.jpg'
+import awashLogo from '../assets/Trusted_Partners/AWASH-WINE-LOGO-1.png'
+import chinaElectricLogo from '../assets/Trusted_Partners/China-Electric.png'
+import dbuLogo from '../assets/Trusted_Partners/DBU LOGO.jpg'
+import deluxLogo from '../assets/Trusted_Partners/delux furniture.png'
+import abayLogo from '../assets/Trusted_Partners/abay bank.png'
+import abbahawaLogo from '../assets/Trusted_Partners/Abbahawa-Trading-PLC-.png'
+import abysinyaLogo from '../assets/Trusted_Partners/Abysinya L.jpg'
+import ethioLogo from '../assets/Trusted_Partners/Ethio-Engineering-Group.jpg'
+import mohaLogo from '../assets/Trusted_Partners/moha-soft-drinks-industry.jpg'
+import zamilLogo from '../assets/Trusted_Partners/zamil.jpg'
+import enatLogo from '../assets/Trusted_Partners/enat.jpg'
+import akkooLogo from '../assets/Trusted_Partners/akkoo.jpg'
+import alphaLogo from '../assets/Trusted_Partners/alpha.jpg'
+import chinaLogo from '../assets/Trusted_Partners/china.jpg'
+import coopLogo from '../assets/Trusted_Partners/coop.jpg'
+import deluxeLogo from '../assets/Trusted_Partners/deluxe.jpg'
+import imoLogo from '../assets/Trusted_Partners/imo.jpg'
+import anbessaLogo from '../assets/Trusted_Partners/anbessa.jpg'
+import electionLogo from '../assets/Trusted_Partners/election board.jpg'
+import obnLogo from '../assets/Trusted_Partners/obn.jpg'
+import primeLogo from '../assets/Trusted_Partners/prime minister.jpg'
+import royalLogo from '../assets/Trusted_Partners/royal.jpg'
+import metropolitanLogo from '../assets/Trusted_Partners/metropolitan.jpg'
+import tafOil2Logo from '../assets/Trusted_Partners/taf oil.jpg'
+import yetebaberutLogo from '../assets/Trusted_Partners/yetebaberut.jpg'
+import yotekLogo from '../assets/Trusted_Partners/yotek .png'
+import wudaseLogo from '../assets/Trusted_Partners/wudase diagnosis.png'
+import giantEagleLogo from '../assets/Trusted_Partners/Giant Eagle .png'
+import ilriLogo from '../assets/Trusted_Partners/ILRI .png'
+import jenboroLogo from '../assets/Trusted_Partners/jenboro.png'
+import kasmaLogo from '../assets/Trusted_Partners/kasma.jpg'
+import abay2Logo from '../assets/Trusted_Partners/abay.png'
+import aklesLogo from '../assets/Trusted_Partners/akles paper.jpg'
+
 const Partners = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -15,128 +73,128 @@ const Partners = () => {
   const partnerLogos = [
     {
       name: 'Midroc Investment Group',
-      logo: '/src/assets/Trusted_Partners/midroc-investment-group.png',
+      logo: midrocLogo,
     },
-    { name: 'Warit Logo', logo: '/src/assets/Trusted_Partners/Warit logo.jpg' },
+    { name: 'Warit Logo', logo: waritLogo },
     {
       name: 'Waryt Logo',
-      logo: '/src/assets/Trusted_Partners/Waryt-logo-2-200x200.png',
+      logo: warytLogo,
     },
-    { name: 'YBP', logo: '/src/assets/Trusted_Partners/YBP L.jpg' },
+    { name: 'YBP', logo: ybpLogo },
     {
       name: 'Zamera CON',
-      logo: '/src/assets/Trusted_Partners/Zamera CON L.jpg',
+      logo: zameraLogo,
     },
-    { name: 'ZS Logo', logo: '/src/assets/Trusted_Partners/zs-logo.png' },
-    { name: 'Stelly RMI', logo: '/src/assets/Trusted_Partners/stelly rmi.jpg' },
-    { name: 'Taf Oil', logo: '/src/assets/Trusted_Partners/taf oil (1).jpg' },
+    { name: 'ZS Logo', logo: zsLogo },
+    { name: 'Stelly RMI', logo: stellyLogo },
+    { name: 'Taf Oil', logo: tafOilLogo },
     {
       name: 'Testi Trading PLC',
-      logo: '/src/assets/Trusted_Partners/Testi Trading PLC.jpg',
+      logo: testiLogo,
     },
-    { name: 'UK Aid', logo: '/src/assets/Trusted_Partners/UK_AID.jpeg' },
-    { name: 'UNICEF', logo: '/src/assets/Trusted_Partners/Unicef L.jpg' },
+    { name: 'UK Aid', logo: ukAidLogo },
+    { name: 'UNICEF', logo: unicefLogo },
     {
       name: 'Walya Steel',
-      logo: '/src/assets/Trusted_Partners/WALYA STEEL LOGO.png',
+      logo: walyaLogo,
     },
-    { name: 'Kobil', logo: '/src/assets/Trusted_Partners/Kobil-Logo.png' },
-    { name: 'Kolya PLC', logo: '/src/assets/Trusted_Partners/Kolya plc.jpg' },
+    { name: 'Kobil', logo: kobilLogo },
+    { name: 'Kolya PLC', logo: kolyaLogo },
     {
       name: 'Lion Insurance',
-      logo: '/src/assets/Trusted_Partners/Lion INSU L.jpg',
+      logo: lionLogo,
     },
-    { name: 'NEBE', logo: '/src/assets/Trusted_Partners/NEBE LOGOl.jpg' },
-    { name: 'IOM', logo: '/src/assets/Trusted_Partners/IOM L.jpg' },
-    { name: 'Kaldis', logo: '/src/assets/Trusted_Partners/Kaldis .jpg' },
+    { name: 'NEBE', logo: nebeLogo },
+    { name: 'IOM', logo: iomLogo },
+    { name: 'Kaldis', logo: kaldisLogo },
     {
       name: 'DKT Ethiopia',
-      logo: '/src/assets/Trusted_Partners/DKT ETHIOPA.jpg',
+      logo: dktLogo,
     },
-    { name: 'EFDA', logo: '/src/assets/Trusted_Partners/efda.jpg' },
+    { name: 'EFDA', logo: efdaLogo },
     {
       name: 'Emu General Importer',
-      logo: '/src/assets/Trusted_Partners/emu general Importer.png',
+      logo: emuLogo,
     },
     {
       name: 'Habesha Beer',
-      logo: '/src/assets/Trusted_Partners/habesha BEER.png',
+      logo: habeshaLogo,
     },
     {
       name: 'Silafrica',
-      logo: '/src/assets/Trusted_Partners/https __s3.amazonaws.com_appforest_uf_f1643885953696x371383582784148100_Silafrica_Logo_Color_WithTagline.jpg',
+      logo: silafricaLogo,
     },
     {
       name: 'Awash Wine',
-      logo: '/src/assets/Trusted_Partners/AWASH-WINE-LOGO-1.png',
+      logo: awashLogo,
     },
     {
       name: 'China Electric',
-      logo: '/src/assets/Trusted_Partners/China-Electric.png',
+      logo: chinaElectricLogo,
     },
-    { name: 'DBU', logo: '/src/assets/Trusted_Partners/DBU LOGO.jpg' },
+    { name: 'DBU', logo: dbuLogo },
     {
       name: 'Delux Furniture',
-      logo: '/src/assets/Trusted_Partners/delux furniture.png',
+      logo: deluxLogo,
     },
-    { name: 'Abay Bank', logo: '/src/assets/Trusted_Partners/abay bank.png' },
+    { name: 'Abay Bank', logo: abayLogo },
     {
       name: 'Abbahawa Trading',
-      logo: '/src/assets/Trusted_Partners/Abbahawa-Trading-PLC-.png',
+      logo: abbahawaLogo,
     },
-    { name: 'Abysinya', logo: '/src/assets/Trusted_Partners/Abysinya L.jpg' },
+    { name: 'Abysinya', logo: abysinyaLogo },
     {
       name: 'Ethio Engineering Group',
-      logo: '/src/assets/Trusted_Partners/Ethio-Engineering-Group.jpg',
+      logo: ethioLogo,
     },
     {
       name: 'Moha Soft Drinks',
-      logo: '/src/assets/Trusted_Partners/moha-soft-drinks-industry.jpg',
+      logo: mohaLogo,
     },
-    { name: 'Zamil', logo: '/src/assets/Trusted_Partners/zamil.jpg' },
-    { name: 'Enat Bank', logo: '/src/assets/Trusted_Partners/enat.jpg' },
-    { name: 'Akkoo', logo: '/src/assets/Trusted_Partners/akkoo.jpg' },
-    { name: 'Alpha', logo: '/src/assets/Trusted_Partners/alpha.jpg' },
-    { name: 'China', logo: '/src/assets/Trusted_Partners/china.jpg' },
-    { name: 'Coop Bank', logo: '/src/assets/Trusted_Partners/coop.jpg' },
-    { name: 'Deluxe', logo: '/src/assets/Trusted_Partners/deluxe.jpg' },
-    { name: 'IMO', logo: '/src/assets/Trusted_Partners/imo.jpg' },
-    { name: 'Anbessa Bank', logo: '/src/assets/Trusted_Partners/anbessa.jpg' },
+    { name: 'Zamil', logo: zamilLogo },
+    { name: 'Enat Bank', logo: enatLogo },
+    { name: 'Akkoo', logo: akkooLogo },
+    { name: 'Alpha', logo: alphaLogo },
+    { name: 'China', logo: chinaLogo },
+    { name: 'Coop Bank', logo: coopLogo },
+    { name: 'Deluxe', logo: deluxeLogo },
+    { name: 'IMO', logo: imoLogo },
+    { name: 'Anbessa Bank', logo: anbessaLogo },
     {
       name: 'Election Board',
-      logo: '/src/assets/Trusted_Partners/election board.jpg',
+      logo: electionLogo,
     },
-    { name: 'OBN', logo: '/src/assets/Trusted_Partners/obn.jpg' },
+    { name: 'OBN', logo: obnLogo },
     {
       name: 'Prime Minister Office',
-      logo: '/src/assets/Trusted_Partners/prime minister.jpg',
+      logo: primeLogo,
     },
-    { name: 'Royal', logo: '/src/assets/Trusted_Partners/royal.jpg' },
+    { name: 'Royal', logo: royalLogo },
     {
       name: 'Metropolitan',
-      logo: '/src/assets/Trusted_Partners/metropolitan.jpg',
+      logo: metropolitanLogo,
     },
-    { name: 'Taf Oil', logo: '/src/assets/Trusted_Partners/taf oil.jpg' },
+    { name: 'Taf Oil', logo: tafOil2Logo },
     {
       name: 'Yetebaberut',
-      logo: '/src/assets/Trusted_Partners/yetebaberut.jpg',
+      logo: yetebaberutLogo,
     },
-    { name: 'Yotek', logo: '/src/assets/Trusted_Partners/yotek .png' },
+    { name: 'Yotek', logo: yotekLogo },
     {
       name: 'Wudase Diagnosis',
-      logo: '/src/assets/Trusted_Partners/wudase diagnosis.png',
+      logo: wudaseLogo,
     },
     {
       name: 'Giant Eagle',
-      logo: '/src/assets/Trusted_Partners/Giant Eagle .png',
+      logo: giantEagleLogo,
     },
-    { name: 'ILRI', logo: '/src/assets/Trusted_Partners/ILRI .png' },
-    { name: 'Jenboro', logo: '/src/assets/Trusted_Partners/jenboro.png' },
-    { name: 'Kasma', logo: '/src/assets/Trusted_Partners/kasma.jpg' },
-    { name: 'Abay', logo: '/src/assets/Trusted_Partners/abay.png' },
+    { name: 'ILRI', logo: ilriLogo },
+    { name: 'Jenboro', logo: jenboroLogo },
+    { name: 'Kasma', logo: kasmaLogo },
+    { name: 'Abay', logo: abay2Logo },
     {
       name: 'Akles Paper',
-      logo: '/src/assets/Trusted_Partners/akles paper.jpg',
+      logo: aklesLogo,
     },
   ]
 
@@ -211,7 +269,7 @@ const Partners = () => {
             >
               <HiChevronLeft className='w-6 h-6' />
             </button>
-
+            
             <div className='text-center'>
               <span className='text-sm text-gray-600'>
                 Page {currentPage + 1} of {totalPages}
@@ -232,7 +290,7 @@ const Partners = () => {
               <motion.div
                 key={`${currentPage}-${index}`}
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 className='flex flex-col items-center'
               >
