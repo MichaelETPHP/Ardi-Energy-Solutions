@@ -323,40 +323,6 @@ const Services = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.8 }}
-          className='text-center mt-16'
-        >
-          <div className='bg-gradient-to-r from-red-50 to-gray-50 rounded-2xl p-8 border border-red-100'>
-            <h3 className='text-2xl font-bold text-gray-900 mb-4'>
-              Ready to Start Your Project?
-            </h3>
-            <p className='text-gray-600 mb-6 max-w-2xl mx-auto'>
-              Our team of experienced electrical engineers is ready to help you
-              with your power distribution and electrical infrastructure needs.
-            </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className='btn-primary rounded-full'
-              >
-                Get Free Consultation
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className='btn-secondary rounded-full'
-              >
-                Download Service Brochure
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

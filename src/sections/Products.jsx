@@ -319,21 +319,13 @@ const Products = () => {
 
                 {/* Product Footer */}
                 <div className='mt-6 pt-6 border-t border-gray-100'>
-                  <div className='flex items-center justify-between'>
+                  <div className='flex items-center justify-center'>
                     <div className='flex items-center space-x-2'>
                       <HiStar className='w-4 h-4 text-yellow-400 fill-current' />
                       <span className='text-sm text-gray-600'>
                         Quality Assured
                       </span>
                     </div>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className='btn-primary rounded-full text-sm'
-                    >
-                      <HiEye className='w-4 h-4 mr-2' />
-                      View Details
-                    </motion.button>
                   </div>
                 </div>
               </motion.div>

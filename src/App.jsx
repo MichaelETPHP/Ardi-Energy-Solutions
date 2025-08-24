@@ -9,7 +9,7 @@ const About = lazy(() => import('./sections/About'))
 const Services = lazy(() => import('./sections/Services'))
 const Products = lazy(() => import('./sections/Products'))
 const Projects = lazy(() => import('./sections/Projects'))
-const Recommendations = lazy(() => import('./sections/Recommendations'))
+const Certifications = lazy(() => import('./sections/Certifications'))
 const Partners = lazy(() => import('./sections/Partners'))
 const Team = lazy(() => import('./sections/Team'))
 
@@ -57,7 +57,7 @@ function App() {
                   <Services />
                   <Products />
                   <Projects />
-                  <Recommendations />
+                  <Certifications />
                   <Partners />
                   <Team />
                   <Contact />

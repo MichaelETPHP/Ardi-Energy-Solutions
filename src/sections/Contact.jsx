@@ -190,45 +190,6 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.8 }}
-          className='text-center bg-gradient-to-r from-red-600 to-red-700 rounded-3xl p-8 md:p-12 text-white'
-        >
-          <h3 className='text-2xl md:text-3xl font-bold mb-4'>
-            Ready to Start Your Project?
-          </h3>
-          <p className='text-red-100 text-lg mb-8 max-w-2xl mx-auto'>
-            Contact us today for a free consultation and let our expert team
-            help you design and implement the perfect electrical solution for
-            your needs.
-          </p>
-
-          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-            <motion.button
-              onClick={() => setIsModalOpen(true)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className='bg-white text-red-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center'
-            >
-              <HiUser className='w-5 h-5 mr-2' />
-              Contact Me
-            </motion.button>
-
-            <motion.a
-              href='mailto:ardienergysolutions97@gmail.com'
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className='bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-600 font-semibold py-4 px-8 rounded-full transition-all duration-200 flex items-center'
-            >
-              <HiEnvelope className='w-5 h-5 mr-2' />
-              Send Email
-            </motion.a>
-          </div>
-        </motion.div>
-
         {/* Professional Services Notice */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

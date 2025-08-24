@@ -30,7 +30,6 @@ const Projects = () => {
       category: 'Infrastructure',
       location: 'Addis Ababa, Ethiopia',
       duration: '18 months',
-      budget: '$2.5M',
       team: '25 engineers',
       description:
         'Comprehensive rehabilitation of medium and low voltage electrical infrastructure across Addis Ababa, including transformer upgrades, distribution network improvements, and smart grid implementation.',
@@ -52,7 +51,6 @@ const Projects = () => {
       category: 'Industrial',
       location: 'Addis Ababa, Ethiopia',
       duration: '12 months',
-      budget: '$1.8M',
       team: '18 engineers',
       description:
         'Complete electrical system design and installation for MOHA Soft Drinks manufacturing facility, including power distribution, lighting, and automation systems.',
@@ -67,50 +65,6 @@ const Projects = () => {
         'Production line integration',
       ],
     },
-    {
-      id: 3,
-      title: 'Midroc Gold Mining PLC',
-      client: 'Midroc Gold Mining',
-      category: 'Mining',
-      location: 'Oromia Region, Ethiopia',
-      duration: '24 months',
-      budget: '$4.2M',
-      team: '32 engineers',
-      description:
-        'Electrical infrastructure development for gold mining operations, including power generation, distribution, and specialized mining equipment electrical systems.',
-      icon: HiHomeModern,
-      color: 'from-yellow-500 to-yellow-600',
-      status: 'In Progress',
-      year: '2024',
-      highlights: [
-        'Mining equipment electrification',
-        'Remote monitoring systems',
-        'Safety compliance systems',
-        'Environmental monitoring',
-      ],
-    },
-    {
-      id: 4,
-      title: 'Hilton Debre Birhan Tree Hotel',
-      client: 'Hilton Hotels',
-      category: 'Hospitality',
-      location: 'Debre Birhan, Ethiopia',
-      duration: '16 months',
-      budget: '$3.1M',
-      team: '22 engineers',
-      description:
-        'Luxury hotel electrical systems design and installation, featuring advanced lighting, HVAC controls, security systems, and guest comfort automation.',
-      icon: HiBuildingStorefront,
-      color: 'from-purple-500 to-purple-600',
-      status: 'Completed',
-      year: '2023',
-      highlights: [
-        'Smart room automation',
-        'Energy management systems',
-        'Security and surveillance',
-        'Guest experience optimization',
-      ],
-    },
   ]
 
   const openModal = () => setIsModalOpen(true)
@@ -118,7 +72,10 @@ const Projects = () => {
 
   return (
     <>
-      <section className='section-padding bg-gradient-to-br from-gray-50 to-blue-50'>
+      <section
+        id='projects'
+        className='section-padding bg-gradient-to-br from-gray-50 to-blue-50'
+      >
         <div className='container-custom'>
           <motion.div
             ref={ref}
@@ -150,7 +107,7 @@ const Projects = () => {
 
           {/* Featured Projects Grid */}
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-12'>
-            {projects.slice(0, 4).map((project, index) => (
+            {projects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -187,22 +144,36 @@ const Projects = () => {
 
                 {/* Project Details */}
                 <div className='p-6'>
-                  <div className='grid grid-cols-2 gap-4 mb-4'>
-                    <div className='flex items-center text-sm text-gray-600'>
-                      <HiMapPin className='w-4 h-4 mr-2 text-red-500' />
-                      {project.location}
-                    </div>
-                    <div className='flex items-center text-sm text-gray-600'>
-                      <HiCalendarDays className='w-4 h-4 mr-2 text-red-500' />
-                      {project.duration}
-                    </div>
-                    <div className='flex items-center text-sm text-gray-600'>
-                      <HiCurrencyDollar className='w-4 h-4 mr-2 text-red-500' />
-                      {project.budget}
-                    </div>
-                    <div className='flex items-center text-sm text-gray-600'>
-                      <HiUsers className='w-4 h-4 mr-2 text-red-500' />
-                      {project.team}
+                  {/* Key Project Info - Prominently Displayed */}
+                  <div className='bg-gray-50 rounded-xl p-4 mb-4'>
+                    <div className='grid grid-cols-3 gap-4 text-center'>
+                      <div className='flex flex-col items-center'>
+                        <div className='w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mb-2'>
+                          <HiCalendarDays className='w-5 h-5 text-red-600' />
+                        </div>
+                        <span className='text-xs text-gray-500'>Duration</span>
+                        <span className='text-sm font-semibold text-gray-900'>
+                          {project.duration}
+                        </span>
+                      </div>
+                      <div className='flex flex-col items-center'>
+                        <div className='w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-2'>
+                          <HiUsers className='w-5 h-5 text-blue-600' />
+                        </div>
+                        <span className='text-xs text-gray-500'>Team Size</span>
+                        <span className='text-sm font-semibold text-gray-900'>
+                          {project.team}
+                        </span>
+                      </div>
+                      <div className='flex flex-col items-center'>
+                        <div className='w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-2'>
+                          <HiCalendarDays className='w-5 h-5 text-green-600' />
+                        </div>
+                        <span className='text-xs text-gray-500'>Year</span>
+                        <span className='text-sm font-semibold text-gray-900'>
+                          {project.year}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
@@ -210,18 +181,10 @@ const Projects = () => {
                     {project.description}
                   </p>
 
-                  <div className='flex items-center justify-between'>
+                  <div className='flex items-center justify-center'>
                     <span className='text-red-600 font-semibold'>
                       {project.year}
                     </span>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className='text-red-600 hover:text-red-700 font-medium text-sm flex items-center group-hover:translate-x-1 transition-transform duration-200'
-                    >
-                      Learn More
-                      <HiArrowRight className='w-4 h-4 ml-1' />
-                    </motion.button>
                   </div>
                 </div>
               </motion.div>
@@ -340,12 +303,7 @@ const Projects = () => {
                             {project.duration}
                           </p>
                         </div>
-                        <div className='bg-white rounded-lg p-3'>
-                          <p className='text-xs text-gray-500'>Budget</p>
-                          <p className='font-semibold text-sm'>
-                            {project.budget}
-                          </p>
-                        </div>
+
                         <div className='bg-white rounded-lg p-3'>
                           <p className='text-xs text-gray-500'>Team Size</p>
                           <p className='font-semibold text-sm'>

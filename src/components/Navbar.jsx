@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { HiBars3, HiXMark } from 'react-icons/hi2'
 import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
 import { useNavigate, useLocation } from 'react-router-dom'
-import logo from '../assets/logo.png'
+import logo from '../assets/ArdiLogo.jpg'
 
 const Navbar = ({ isScrolled }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,7 +18,6 @@ const Navbar = ({ isScrolled }) => {
     { id: 'products', label: 'Products' },
     { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' },
-    { id: 'testing', label: 'Testing', isRoute: true },
   ]
 
   useEffect(() => {
