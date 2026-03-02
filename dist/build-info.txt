@@ -1,0 +1,9 @@
+Ardi Energy Solutions - Production Build
+========================================
+Build Date: 2-2-2026 (February 2, 2026)
+Version: 1.0.0
+
+Build includes:
+- Hero section with sliding1.jpg and sliding2.jpg
+- Zoom effect on hero images
+- Current project data and assets

@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
-import image1 from '../assets/45.jpg'
-import image2 from '../assets/Ethiopia.png'
+import heroImage1 from '../assets/sliding1.jpg'
+import heroImage2 from '../assets/sliding2.jpg'
 
 const slides = [
   {
-    image: image1,
+    image: heroImage1,
     title: 'Welcome to Ardi Energy Solutions',
     subtitle:
       'Your trusted partner in creating innovative and sustainable energy solutions for a brighter future.',
   },
   {
-    image: image2,
-    title: "Powering Ethiopia's Future",
+    image: heroImage2,
+    title: 'Advanced Power Solutions',
     subtitle:
-      'We are committed to providing reliable and affordable energy to homes and businesses across Ethiopia.',
+      'Leading the industry with cutting-edge reactive power compensation and energy management technologies.',
   },
 ]
 
@@ -44,13 +44,25 @@ const Hero = () => {
 
   return (
     <section id='home' className='relative h-screen overflow-hidden'>
-      <AnimatePresence>
+      <AnimatePresence mode='wait'>
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ 
+            opacity: 1, 
+            scale: [1, 1.15],
+          }}
           exit={{ opacity: 0, scale: 1.1 }}
-          transition={{ duration: 1 }}
+          transition={{ 
+            opacity: { duration: 1 },
+            scale: { 
+              duration: 20, 
+              repeat: Infinity, 
+              repeatType: 'reverse',
+              ease: 'easeInOut',
+              times: [0, 1]
+            }
+          }}
           className='absolute inset-0 bg-cover bg-center'
           style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
         />
